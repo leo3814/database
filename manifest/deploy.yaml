@@ -2,31 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
-  namespace: three-tier
+  namespcae: three-tier
   labels:
-    role: frontend
-    env: demo
-spec: 
-  replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 25%
+    app: nginx
+spec:
+  replicas: 3
   selector:
-    matchLabels: 
-      role: frontend
+    matchLabels:
+      app: nginx
   template:
     metadata:
       labels:
-        role: frontend
-    spec: 
+        app: nginx
+    spec:
       containers:
-      - name: frontend
-        image: leo3814/node:latest
-        imagePullPolicy: Always
-        env:
-          - name: REACT_APP_BACKEND_URL
-            value: "http://amanpathakdevops.study/api/tasks"
+      - name: nginx
+        image: nginx:1.14.2
         ports:
         - containerPort: 3000
