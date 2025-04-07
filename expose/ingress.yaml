@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: koinparkmail.com
+    - host: test.koinparkmail.com
       http:
         paths:
           - path: /
