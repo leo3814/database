@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  namespcae: three-tier
+  namespace: three-tier
   labels:
     app: nginx
 spec:
